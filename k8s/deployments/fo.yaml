@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: fo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fo
+  template:
+    metadata:
+      labels:
+        app: fo
+    spec:
+      containers:
+      - image: gcr.io/jumia-app-sample/fo:latest 
+        name: frontend
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+
